@@ -21,7 +21,7 @@ class Car private constructor(builder: Car.Builder){
         }
 
         fun color(color: String) = apply{this.color = color}
-        fun transmition(trainsmition: String) = apply{this.transmition = transmition}
+        fun transmition(transmition: String) = apply{this.transmition = transmition}
 
         fun build():Car{
             return Car(this)
