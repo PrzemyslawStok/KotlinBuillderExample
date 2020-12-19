@@ -1,5 +1,20 @@
-class Car{
+class Car private constructor(builder: Car.Builder){
+    val engine: String?
 
+    init{
+        this.engine = builder.engine
+    }
+
+    class Builder{
+        var engine: String = "Petrol"
+        fun engine(engine: String):Builder{
+            this.engine = engine
+            return this
+        }
+        fun build():Car{
+            return Car(this)
+        }
+    }
 }
 
 class Student(var name: String, var surname: String, var university: String = "WSIZ BB"){
@@ -14,6 +29,11 @@ fun main() {
     add(5,10)
     add(5)
     add()
+
+
+    val car = Car.Builder().build()
+    val car1 = Car.Builder().engine("Diesel").build()
+
 }
 
 fun add(a: Int = 10, b: Int = 5):Int{
