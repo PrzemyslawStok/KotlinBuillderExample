@@ -1,16 +1,23 @@
 class Car private constructor(builder: Car.Builder){
     val engine: String?
+    val color: String?
 
     init{
         this.engine = builder.engine
+        this.color = builder.color
     }
 
     class Builder{
         var engine: String = "Petrol"
+        var color: String = "Blue"
+
         fun engine(engine: String):Builder{
             this.engine = engine
             return this
         }
+
+        fun color(color: String) = apply{this.color = color}
+
         fun build():Car{
             return Car(this)
         }
@@ -32,7 +39,13 @@ fun main() {
 
 
     val car = Car.Builder().build()
-    val car1 = Car.Builder().engine("Diesel").build()
+
+    val carPetrolBuilder = Car.Builder().engine("Petrol")
+
+    val car2: Car = carPetrolBuilder.color("Blue").build()
+    val car3: Car = carPetrolBuilder.color("Yellow").build()
+
+    val car1 = Car.Builder().engine("Diesel").color("Green").build()
 
 }
 
