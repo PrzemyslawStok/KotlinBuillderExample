@@ -51,7 +51,7 @@ fun main() {
     val car3: Car = carPetrolBuilder.color("Yellow").build()
 
     val car1 = Car.Builder().engine("Diesel").color("Green").build()
-    Car.Builder().engine = "Diesel"
+    //Car.Builder().engine = "Diesel"
 
 }
 
